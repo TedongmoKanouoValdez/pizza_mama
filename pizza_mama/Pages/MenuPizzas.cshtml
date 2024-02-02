@@ -12,18 +12,33 @@
     <title>Ma Pizza Mama App</title>
 </head>
 <body>
-    <h1>Menu des pizzas</h1>
-
-    <a asp-page="Index">Retour à l'accueil</a>
-
-    <ul>
+    <a asp-page="Index">
+        <img src="css/images/small_logo.png" id="logo-small" />
+    </a>
+   
+    <div class="menu-title">
+        <h1>Les pizzas</h1>
+    </div>
+    
+    <div class="menu-list">
     @foreach (var pizza in Model.Pizza){
        //afficher le nom et les prix des pizzas
-            <li>
-                @pizza.nom - @pizza.prix €
-            </li> 
+            <div class="menu-list-item">
+                <span class="menu-list-title">@pizza.nom</span>
+                <span class="menu-list-price">@String.Format("{0:0.00}", pizza.prix)€</span>
+                <br />
+                <span class="menu-list-ingredient">@pizza.ingredients</span>
+
+                @if (pizza.vegetarienne)
+                {
+                    <span class="menu-list-vegetarienne"> Vegetarienne</span>
+                }
+              
+            </div>
+            
     }
-    </ul>
+    </div>
+
 </body>
 </html>
 
