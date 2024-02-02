@@ -15,7 +15,7 @@ namespace pizza_mama
     {
         public static void Main(string[] args)
         {
-            /*CreateHostBuilder(args).Build().Run();*/
+            /* CreateHostBuilder(args).Build().Run();*/
             var host = CreateHostBuilder(args).Build();
             CreateDbIfNotExists(host);
             host.Run();

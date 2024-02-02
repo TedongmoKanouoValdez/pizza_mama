@@ -36,10 +36,14 @@ namespace pizza_mama
 
             /*IOC -> permet de creer les instances ou conserver des instances uniques(singletons)
              DtaContextInstance = new DataContext */
+            /*services.AddDbContext<DataContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnectionSqlite")));*/
+
             services.AddDbContext<DataContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddRazorPages();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +78,7 @@ namespace pizza_mama
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
