@@ -1,0 +1,29 @@
+﻿@page
+@model pizza_mama.Pages.MenuPizzasModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Ma Pizza Mama App</title>
+</head>
+<body>
+    <h1>Menu des pizzas</h1>
+
+    <a asp-page="Index">Retour à l'accueil</a>
+
+    <ul>
+    @foreach (var pizza in Model.Pizza){
+       //afficher le nom et les prix des pizzas
+            <li>
+                @pizza.nom - @pizza.prix €
+            </li> 
+    }
+    </ul>
+</body>
+</html>
+
